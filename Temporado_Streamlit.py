@@ -35,28 +35,23 @@ def main():
         image = Image.open(file)
         st.image(image, use_column_width=True)
 
-        if st.button("Classify"):
-            with st.spinner("Classifying..."):
-                prediction = import_and_predict(image, model)
+        with st.spinner("Classifying..."):
+            prediction = import_and_predict(image, model)
 
-            class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
-                           'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+        class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
+                       'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
-            class_index = np.argmax(prediction)
-            class_name = class_names[class_index]
+        class_index = np.argmax(prediction)
+        class_name = class_names[class_index]
 
-            st.success(f"Predicted Class: {class_name} (Confidence: {prediction[0][class_index]*100:.2f}%)")
-
-            # Auto-scroll to the "Classify" button
-            scroll_js = """
-            <script>
-                const button = document.querySelector('.stButton>button');
-                if (button) {
-                    button.scrollIntoView({ behavior: 'smooth' });
-                }
-            </script>
-            """
-            st.write(scroll_js, unsafe_allow_html=True)
+        st.success(f"Predicted Class: {class_name} (Confidence: {prediction[0][class_index]*100:.2f}%)")
+        # Auto-scroll to the bottom of the page
+        scroll_js = """
+        <script>
+            window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
+        </script>
+        """
+        st.write(scroll_js, unsafe_allow_html=True)
 
 if __name__ == '__main__':
     main()
