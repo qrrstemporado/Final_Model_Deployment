@@ -47,10 +47,18 @@ def main():
 
             st.success(f"Predicted Class: {class_name} (Confidence: {prediction[0][class_index]*100:.2f}%)")
 
-            # Auto-scroll to the bottom of the page
+            # Auto-scroll to the "Classify" button
             scroll_js = """
             <script>
-                window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
+                function scrollToClassifyButton() {
+                    var buttons = document.getElementsByClassName("StreamlitButton");
+                    if (buttons.length > 0) {
+                        buttons[0].scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                        setTimeout(scrollToClassifyButton, 100);
+                    }
+                }
+                scrollToClassifyButton();
             </script>
             """
             st.write(scroll_js, unsafe_allow_html=True)
