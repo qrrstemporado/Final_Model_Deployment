@@ -56,4 +56,5 @@ def main():
             st.write(scroll_js, unsafe_allow_html=True)
 
 if __name__ == '__main__':
+    st.sidebar.button('Menu')
     main()
