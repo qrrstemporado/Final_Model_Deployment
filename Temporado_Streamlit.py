@@ -50,7 +50,7 @@ def main():
 
     st.write("""
     # Fashion Mnist Classifier
-    Upload an image of a clothing item to classify its category.
+    Upload an image of a clothing item to classify its category. [T-shirt/top, Trouser, Pullover, Dress, Coat, Sandal, Shirt, Sneaker, Bag, Ankle boot]
     """)
 
     file = st.file_uploader("Choose an image file (jpg/png)", type=["jpg", "png"])
