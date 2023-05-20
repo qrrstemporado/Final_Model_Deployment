@@ -20,18 +20,18 @@ def import_and_predict(image_data, model):
     return prediction
 
 def about():
-    st.write("""
+    st.sidebar.write("""
     This is a simple Fashion Mnist Classifier app that predicts the category of a clothing item based on an uploaded image.
     It uses a pre-trained deep learning model to make the predictions.
     """)
 
 def author():
-    st.write("""
+    st.sidebar.write("""
     This app is created by [Your Name].
     """)
 
 def conclusion():
-    st.write("""
+    st.sidebar.write("""
     Thank you for using this app! If you have any feedback or suggestions, feel free to reach out.
     """)
 
@@ -41,17 +41,17 @@ def main():
     st.sidebar.title("Menu")
     menu_selection = st.sidebar.selectbox("Select Option", ["About", "Author", "Conclusion"])
 
-    st.write("""
-    # Fashion Mnist Classifier
-    Upload an image of a clothing item to classify its category.
-    """)
-
     if menu_selection == "About":
         about()
     elif menu_selection == "Author":
         author()
     elif menu_selection == "Conclusion":
         conclusion()
+
+    st.write("""
+    # Fashion Mnist Classifier
+    Upload an image of a clothing item to classify its category.
+    """)
 
     file = st.file_uploader("Choose an image file (jpg/png)", type=["jpg", "png"])
 
