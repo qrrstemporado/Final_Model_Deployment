@@ -41,17 +41,17 @@ def main():
     st.sidebar.title("Menu")
     menu_selection = st.sidebar.selectbox("Select Option", ["About", "Author", "Conclusion"])
 
+    st.write("""
+    # Fashion Mnist Classifier
+    Upload an image of a clothing item to classify its category.
+    """)
+
     if menu_selection == "About":
         about()
     elif menu_selection == "Author":
         author()
     elif menu_selection == "Conclusion":
         conclusion()
-
-    st.write("""
-    # Fashion Mnist Classifier
-    Upload an image of a clothing item to classify its category.
-    """)
 
     file = st.file_uploader("Choose an image file (jpg/png)", type=["jpg", "png"])
 
