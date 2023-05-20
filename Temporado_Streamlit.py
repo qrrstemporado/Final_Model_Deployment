@@ -39,7 +39,7 @@ def main():
     model = load_model()
 
     st.sidebar.title("Menu")
-    menu_selection = st.sidebar.radio("Select Option", ["About", "Author", "Conclusion"])
+    menu_selection = st.sidebar.selectbox("Select Option", ["About", "Author", "Conclusion"])
 
     if menu_selection == "About":
         about()
