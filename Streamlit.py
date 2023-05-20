@@ -19,23 +19,33 @@ def import_and_predict(image_data, model):
     prediction = model.predict(img)
     return prediction
 
-model = load_model()
+def main():
+    model = load_model()
 
-st.write("""
-# Fashion Mnist Classificator
-""")
+    st.write("""
+    # Fashion Mnist Classifier
+    Upload an image of a clothing item to classify its category.
+    """)
 
-file = st.file_uploader("Choose plant photo from computer", type=["jpg", "png"])
+    file = st.file_uploader("Choose an image file (jpg/png)", type=["jpg", "png"])
 
-if file is None:
-    st.text("Please upload an image file")
-else:
-    image = Image.open(file)
-    st.image(image, use_column_width=True)
-    prediction = import_and_predict(image, model)
-    
-    class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
-                   'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
-               
-    string = "OUTPUT: " + class_names[np.argmax(prediction)]
-    st.success(string)
+    if file is None:
+        st.text("Please upload an image file")
+    else:
+        image = Image.open(file)
+        st.image(image, use_column_width=True)
+
+        if st.button("Classify"):
+            with st.spinner("Classifying..."):
+                prediction = import_and_predict(image, model)
+
+            class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
+                           'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+
+            class_index = np.argmax(prediction)
+            class_name = class_names[class_index]
+
+            st.success(f"Predicted Class: {class_name} (Confidence: {prediction[0][class_index]*100:.2f}%)")
+
+if __name__ == '__main__':
+    main()
