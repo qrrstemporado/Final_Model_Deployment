@@ -50,15 +50,12 @@ def main():
             # Auto-scroll to the "Classify" button
             scroll_js = """
             <script>
-                function scrollToClassifyButton() {
-                    var buttons = document.getElementsByClassName("StreamlitButton");
-                    if (buttons.length > 0) {
-                        buttons[0].scrollIntoView({ behavior: 'smooth' });
-                    } else {
-                        setTimeout(scrollToClassifyButton, 100);
+                document.addEventListener("DOMContentLoaded", function() {
+                    const button = document.querySelector('button[data-testid="stSessionStateButton"]');
+                    if (button) {
+                        button.scrollIntoView({ behavior: 'smooth' });
                     }
-                }
-                scrollToClassifyButton();
+                });
             </script>
             """
             st.write(scroll_js, unsafe_allow_html=True)
