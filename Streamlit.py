@@ -47,5 +47,13 @@ def main():
 
             st.success(f"Predicted Class: {class_name} (Confidence: {prediction[0][class_index]*100:.2f}%)")
 
+            # Auto-scroll to the bottom of the page
+            scroll_js = """
+            <script>
+                window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
+            </script>
+            """
+            st.sidebar.markdown(scroll_js, unsafe_allow_html=True)
+
 if __name__ == '__main__':
     main()
