@@ -21,7 +21,7 @@ def import_and_predict(image_data, model):
 
 def about():
     st.sidebar.write("""
-    This is a simple Fashion Mnist Classifier app that predicts the category of a clothing item based on an uploaded image.It uses a pre-trained deep learning model to make the predictions, and the model that is being used by the app is Convolutional Neural Network (CNN) from Hands-On Activity 9, which produces an accuracy of 85% in classifying a clothing item.
+    This is a simple Fashion Mnist Classifier app that predicts the category of a clothing item based on an uploaded image.It uses a pre-trained deep learning model to make the predictions, and the model that is being used by the app is Convolutional Neural Network (CNN) from Hands-On Activity 9, which achieved an accuracy of 85% in classifying a clothing item.
     
     You can see the whole simulation and source code through this link: https://colab.research.google.com/drive/1rTMyjcOSjNeI5mLKsTmZq_aohfLjz0sZ?usp=share_link""")
 
@@ -32,7 +32,7 @@ def author():
 
 def conclusion():
     st.sidebar.write("""
-    Thank you for using this app! If you have any feedback or suggestions, feel free to reach out.
+    In conclusion, this activity talks about uploading your created deep learning model to the cloud using streamlit, which is an open-source app framework in Python that helps create web apps for data science and machine learning in a short time. It is compatible with major Python libraries such as Scikit-Learn, Keras, PyTorch, SymPy (latex), NumPy, Pandas, Matplotlib, etc. That being said, Streamlit is the best platform to deploy your deep learning model. With the help of the guide provided by the instructor, the student successfully learned how to deploy deep learning models using Streamlit, wherein it is required first to have your best model, which will serve as the basis of the classification or prediction that will be used by the app. Moreover, the student used the CNN model on Hands-On Activity 9, wherein on the said activity it uses the Fashion MNIST dataset in order to develop a CNN model that solves the problem of image classification of clothing items. Creating a CNN model for Fashion MNIST can be applied to inventory management systems and can be used to cater to customers, particularly in finding their preferred clothes or shoes, wherein the said model accumulates an accuracy of 85% on classifying clothing items. Lastly, with the help of a Github repository, the student successfully compiled all the necessary things needed to establish a streamlit deployment.  
     """)
 
 def main():
