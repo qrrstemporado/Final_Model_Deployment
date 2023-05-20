@@ -1,24 +1,3 @@
-import streamlit as st
-import tensorflow as tf
-import cv2
-from PIL import Image, ImageOps
-import numpy as np
-
-@st.cache(allow_output_mutation=True)
-def load_model():
-    model = tf.keras.models.load_model('best_model.h5')
-    return model
-
-def import_and_predict(image_data, model):
-    size = (28, 28)
-    image = ImageOps.fit(image_data, size, Image.ANTIALIAS)
-    image = image.convert('L')  # Convert image to grayscale
-    img = np.asarray(image)
-    img = img.reshape(1, 28, 28, 1)  # Reshape to match the model's input shape
-    img = img / 255.0  # Normalize pixel values to range [0, 1]
-    prediction = model.predict(img)
-    return prediction
-
 def main():
     model = load_model()
 
