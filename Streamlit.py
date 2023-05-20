@@ -53,7 +53,7 @@ def main():
                 window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
             </script>
             """
-            st.sidebar.markdown(scroll_js, unsafe_allow_html=True)
+            st.write(scroll_js, unsafe_allow_html=True)
 
 if __name__ == '__main__':
     main()
