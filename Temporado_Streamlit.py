@@ -22,6 +22,7 @@ def import_and_predict(image_data, model):
 def about():
     st.sidebar.write("""
     This is a simple Fashion Mnist Classifier app that predicts the category of a clothing item based on an uploaded image.It uses a pre-trained deep learning model to make the predictions, and the model that is being used by the app is Convolutional Neural Network (CNN) from Hands-On Activity 9, which produces an accuracy of 85% in classifying a clothing item.
+    
     You can see the whole simulation and source code through this link: https://colab.research.google.com/drive/1rTMyjcOSjNeI5mLKsTmZq_aohfLjz0sZ?usp=share_link""")
 
 def author():
